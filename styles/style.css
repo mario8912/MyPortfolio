@@ -13,7 +13,7 @@ body {
 .menu {
     width: 100vw;
     height: 5vw;
-    border-bottom: solid 1px black;
+    /*border-bottom: solid 1px black;*/
     align-content: center;
     position: relative;
 }
@@ -34,16 +34,19 @@ ul {
 
 li:hover {
     transform: translateY(-2px);
-    transition: 150ms;
+    transition: 200ms;
 }
-
 
 li a:hover {
     text-shadow: grey 1px 1px;
     transition: 200ms;
 }
 
-#menu-item-pic {
+.no-hover {
+    pointer-events: none;
+}
+
+.menu-item:nth-child(3) {
     position: absolute;
     top: 65px;
     z-index: 10;
@@ -64,6 +67,50 @@ a {
 img {
     height: 60px;
 }
+
+.divider {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 1vw;
+}
+
+hr {
+    margin: 0;
+    display: inline;
+    width: 46vw;
+    border-top: solid 1px #312016;
+}
+
+.about-me {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 16px;
+}
+
+
+.about-me img {
+    margin-top: 10px;
+    height: 830px;
+    width: 35vw;
+}
+
+.about-me div {
+    margin: 0 auto 0 350px;
+    height: 500px;
+    width: 40vw;
+}
+
+.text-about-me-title {
+    font-family: "Poiret One", sans-serif;
+    font-weight: bold;
+    color: #312016;
+}
+
+.text-about-me {
+    font-size: x-large;
+}
+
 
 /*FOOTER*/
 
