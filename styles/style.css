@@ -116,7 +116,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 8px 16px;
+    margin: 8px 16px 32px 16px;
 }
 
 
@@ -147,9 +147,39 @@ main {
 
 .projects {
     margin: 8px 16px;
-    height: 1000px;
+    height: 87vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
+.project-card {
+    margin-top: 32px;
+    width: 26vw;
+    border: solid 1px #312016;
+    height: 70vh;
+    border-radius: 5px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+}
+
+.project-card:hover{
+    transform: translateY(-20px);
+    transition-duration: 200ms;
+    box-shadow: #312016 2px 2px 10px;
+}
+
+.project-image {
+    width: 80%;
+    height: 60%;
+}
+
+.project-description{
+    text-align: center;
+}
 
 /*FOOTER*/
 
