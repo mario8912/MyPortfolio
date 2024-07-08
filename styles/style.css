@@ -2,33 +2,70 @@
     box-sizing: border-box;
 }
 
+html {
+    background-color: #ebe9df;
+}
+
 body {
     margin: 0;
 }
 
 .menu {
-    
     width: 100vw;
-    border: solid 1px black;
+    height: 5vw;
+    border-bottom: solid 1px black;
+    align-content: center;
+    position: relative;
 }
 
 ul {
-    position: relative;
-    height: 30px;
+    height: inherit;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
     list-style: none;
+    position: relative;
 }
 
-.menu-item-pic {
-    align-self: flex-end;
+li:hover {
+    transform: translateY(-2px);
+    transition: 150ms;
+}
+
+
+li a:hover {
+    text-shadow: grey 1px 1px;
+    transition: 200ms;
+}
+
+#menu-item-pic {
+    position: absolute;
+    top: 65px;
+    z-index: 10;
+}
+
+li a {
+    font-family: "Poiret One", sans-serif;
+    font-size: large;
+    font-weight: bold;
+    color: #312016;
 }
 
 a {
     text-decoration: none;
     color: black;
 }
+
+img {
+    height: 60px;
+}
+
+/*FOOTER*/
 
 
 
