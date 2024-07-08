@@ -4,18 +4,31 @@
 
 html {
     background-color: #ebe9df;
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
+    padding-top: 10vh;
 }
 
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    margin-bottom: 8px;
+    padding-bottom: 16px;
+    background-color: #ebe9df;
+}
+
+
 .menu {
-    width: 100vw;
-    height: 5vw;
-    /*border-bottom: solid 1px black;*/
+    width: 100%;
+    height: 10vh;
     align-content: center;
-    position: relative;
+    position: sticky;
+    
+    
 }
 
 ul {
@@ -26,10 +39,17 @@ ul {
     margin-inline-end: 0;
     padding-inline-start: 0;
     display: flex;
+    width: 100%;
     justify-content: space-around;
     align-items: center;
     list-style: none;
     position: relative;
+}
+
+
+
+li .menu-item.active {
+    color: white;
 }
 
 li:hover {
@@ -49,19 +69,26 @@ li a:hover {
 .menu-item:nth-child(3) {
     position: absolute;
     top: 65px;
-    z-index: 10;
-}
-
-li a {
-    font-family: "Poiret One", sans-serif;
-    font-size: large;
-    font-weight: bold;
-    color: #312016;
+    z-index: 999;
 }
 
 a {
     text-decoration: none;
-    color: black;
+}
+
+.menu-item a {
+    font-family: "Nova Round", system-ui;
+    font-size: x-large;
+    font-weight: bold;
+    color: #312016;
+    text-decoration: none;
+    transition: color 1s ease-in;
+}
+
+.menu-item.active a {
+    text-shadow: #A27053 1px 1px 2px;
+    transition: 400ms;
+    color: #312016;
 }
 
 img {
@@ -74,11 +101,15 @@ img {
     margin: 0 1vw;
 }
 
-hr {
+.divider hr {
     margin: 0;
     display: inline;
     width: 46vw;
     border-top: solid 1px #312016;
+}
+
+main {
+    width: 100%;
 }
 
 .about-me {
@@ -99,6 +130,7 @@ hr {
     margin: 0 auto 0 350px;
     height: 500px;
     width: 40vw;
+    align-self: center;
 }
 
 .text-about-me-title {
@@ -108,7 +140,14 @@ hr {
 }
 
 .text-about-me {
-    font-size: x-large;
+    font-family: "Poiret One", sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.projects {
+    margin: 8px 16px;
+    height: 1000px;
 }
 
 
