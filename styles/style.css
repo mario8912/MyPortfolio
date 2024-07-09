@@ -13,42 +13,26 @@ body {
     overflow-x: hidden;
 }
 
-header {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    margin-bottom: 8px;
-    padding-bottom: 44px;
-    background-color: #ebe9df;
-}
-
-
 .menu {
+    position: fixed;
+    align-content: center;
+    padding-bottom: 12vh;
     width: 100%;
     height: 10vh;
-    align-content: center;
-    position: sticky;  
+    top: 0;
+    background-color: #ebe9df;
+    z-index: 999;
 }
 
 ul {
-    height: inherit;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-    padding-inline-start: 0;
     display: flex;
-    width: 100%;
     justify-content: space-around;
     align-items: center;
+    height: inherit;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     list-style: none;
-    position: relative;
-}
-
-
-
-li .menu-item.active {
-    color: white;
 }
 
 li:hover {
@@ -65,39 +49,44 @@ li a:hover {
     pointer-events: none;
 }
 
-.menu-item:nth-child(3) {
-    position: absolute;
-    top: 65px;
-    z-index: 999;
+.menu-item {
+    align-content: center;
+    margin-top: 0vh; /*depends on the typography*/
 }
 
-a {
-    text-decoration: none;
+.menu-item:nth-child(3) {
+    position: absolute;
+    top: 6.2vh; /*depends on the margin-top of .menu-item above*/
+}
+
+.menu-item img {
+    border-radius: 100%;
+    background-color: #ebe9df;
+}
+
+img {
+    height: 80px;;
 }
 
 .menu-item a {
-    font-family: "Nova Round", system-ui;
+    font-family: "Italiana", sans-serif;
     font-size: x-large;
     font-weight: bold;
     color: #312016;
     text-decoration: none;
-    transition: color 1s ease-in;
+    transition: 600ms ease-in;
 }
 
 .menu-item.active a {
-    text-shadow: #A27053 1px 1px 2px;
-    transition: 400ms;
-    color: #312016;
-}
-
-img {
-    height: 60px;
+    text-shadow: #411c03 2px 2px 10px;
 }
 
 .divider {
+    width: 100%;
+    position: fixed;
     display: flex;
     justify-content: space-between;
-    margin: 0 1vw;
+    z-index: 999;
 }
 
 .divider hr {
@@ -147,7 +136,7 @@ main {
 .projects {
     margin: 8px 16px;
     padding: 0 9vw;
-    height: 87vh;
+    height: 77vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -168,7 +157,7 @@ main {
     transition: transform 1s ease, opacity 3s ease;
 }
 
-.project-card:hover{
+.project-card:hover {
     transform: translateY(-20px);
     box-shadow: #312016 2px 2px 10px;
     transition-duration: 200ms;
@@ -221,6 +210,7 @@ main {
     margin-left: 100vw;
     opacity: 0;
     transition: transform 1s ease-in-out, opacity 2.2s ease;
+    z-index: 0;
 }
 
 .card-expanded.in {
@@ -261,5 +251,19 @@ main {
     margin-right: 12px;
 }
 
+.projects-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+}
 
-  
+.projects-title {
+    display: block;
+    margin-top: 8vh;
+    margin-left: 10vw;
+    size: 10em;
+}
+
+section ~ section {
+    height: 100vh;
+}

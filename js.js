@@ -48,6 +48,7 @@ function scrollOnClickMenuItem(){
 
 function focusMenuItemOnScroll(){
     const sections = document.querySelectorAll('section'); 
+    sections.add(document.getElementById("projects"))
 
     function changeNavbarColor() {
         let scrollPosition = window.scrollY;
@@ -56,7 +57,7 @@ function focusMenuItemOnScroll(){
             let sectionTop = section.offsetTop;
             let sectionHeight = section.clientHeight;
 
-            if (scrollPosition >= sectionTop - 350 && scrollPosition < sectionTop + sectionHeight) {
+            if (scrollPosition >= sectionTop - 200 && scrollPosition < sectionTop + sectionHeight) {
                 let id = section.getAttribute('id');
                 setActiveMenuItem(id);
             }

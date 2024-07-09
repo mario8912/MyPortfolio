@@ -5,33 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nova+Round&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Handlee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Charm:wght@400;700&family=Handlee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Charm:wght@400;700&family=Handlee&family=Italiana&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
     <title>Mario López Vila Portfolio</title>
 </head>
 <body>
-    <header>
-        <nav class="menu">
-            <ul>
-                <li class="menu-item"><a href="#index">INICIO</a></li>
-                <li class="menu-item"><a href="#projects">PROYECTOS</a></li>
-                <li class="menu-item no-hover" id="menu-item-pic">
-                    <img src="images/M_1.png" alt="my icon">
-                </li>
-                <li class="menu-item"><a href="">MI CV</a></li>
-                <li class="menu-item"><a href="">CONTACTO</a></li>
-            </ul>
+    <nav class="menu">
+        <ul>
+            <li class="menu-item"><a href="#index">INICIO</a></li>
+            <li class="menu-item"><a href="#projects">PROYECTOS</a></li>
+            <li class="menu-item no-hover" id="menu-item-pic">
+                <img src="images/M_1.png" alt="my icon">
+            </li>
+            <li class="menu-item"><a href="#miCv">MI CV</a></li>
+            <li class="menu-item"><a href="#contacto">CONTACTO</a></li>
+        </ul>
+    </nav>
 
-            <div class="divider">
-                <hr><hr>
-            </div>
-        </nav>
-    </header>
+    <div class="divider">
+        <hr><hr>
+    </div>
 
     <main>
         <section class="about-me" id="index">
-            <img src="images/me.jpeg" alt="">
+            <img src="images/me.svg" alt="">
             <div>
                 <h1 class="text-about-me-title"></h1>
                 <p class="text-about-me"></p>
@@ -40,10 +39,13 @@
 
         <hr>
 
-        <section class="projects" id="projects">
+        
+        <span class="projects-title" id="projects">PROYECTOS</span>
+        
+        <section class="projects">
             <article class="project-card" id="project1">
                 <h2 class="project-title">PROYECTO 1</h2>
-                <img src="images/me.jpeg" alt="" class="project-image">
+                <img src="images/me.svg" alt="" class="project-image">
                 <p class="project-description">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, reprehenderit perspiciatis? Commodi nemo recusandae incidunt provident molestias? 
                 </p>
@@ -51,7 +53,7 @@
 
             <article class="project-card" id="project2">
                 <h2 class="project-title">PROYECTO 2</h2>
-                <img src="images/me.jpeg" alt="" class="project-image">
+                <img src="images/me.svg" alt="" class="project-image">
                 <p class="project-description">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, reprehenderit perspiciatis? Commodi nemo recusandae incidunt provident molestias? 
                 </p>
@@ -59,7 +61,7 @@
 
             <article class="project-card" id="project3">
                 <h2 class="project-title">PROYECTO 3</h2>
-                <img src="images/me.jpeg" alt="" class="project-image">
+                <img src="images/me.svg" alt="" class="project-image">
                 <p class="project-description">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, reprehenderit perspiciatis? Commodi nemo recusandae incidunt provident molestias?
                 </p>
@@ -74,7 +76,7 @@
                 PROYECTO 1
             </div>
             <div class="grid-card image">
-                <img src="images/me.jpeg" alt="">
+                <img src="images/me.svg" alt="">
             </div>
             <div class="grid-card description">
                 <p class="project-description">ç
@@ -85,8 +87,16 @@
                 <img src="images/next.ico" alt="">
             </button>
         </article>
+        
         <hr>
 
+        <section id="miCv">
+        </section>
+
+        <hr>
+    
+        <section id="contacto">
+        </section>
     </main>
 
     <script src="js.js"></script>
