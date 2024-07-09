@@ -165,7 +165,7 @@ main {
     background-color: rgba(156, 122, 103, 0.6);
     box-shadow: #312016 5px 5px 10px;
     cursor: pointer;
-    transition: transform 2s ease, opacity 3s ease;
+    transition: transform 1s ease, opacity 3s ease;
 }
 
 .project-card:hover{
@@ -220,7 +220,7 @@ main {
     width: 97vw;
     margin-left: 100vw;
     opacity: 0;
-    transition: transform 700ms ease-in-out, opacity 2.2s ease;
+    transition: transform 1s ease-in-out, opacity 2.2s ease;
 }
 
 .card-expanded.in {

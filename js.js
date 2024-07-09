@@ -114,14 +114,14 @@ function expandCards(){
 
             setTimeout(() => {
                 document.getElementById("projects").style.display = "none"
-            }, 750);
+            }, 600);
 
             const cardExpanded = document.getElementById("cardExpanded");
             cardExpanded.style.display = "grid"
 
             setTimeout(() => {
                 cardExpanded.classList.add("in")
-            }, 700);
+            }, 250);
         });
     })
 }
