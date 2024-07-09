@@ -1,4 +1,32 @@
+const spanTitle = document.querySelector(".text-about-me-title")
+const textTitle = "SOBRE MÍ: "
+const pDescription = document.querySelector(".text-about-me")
+const  textDescription = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, " + 
+    "reprehenderit perspiciatis? Commodi nemo recusandae incidunt provident molestias? Odio" + 
+    " vitae magni unde esse, molestias consequatur earum, animi consectetur saepe libero omnis quaerat " + 
+    "praesentium laborum. Magni esse vitae omnis, obcaecati nostrum ducimus recusandae possimus illo ex numquam laborum architecto tempora officia maiores!" + 
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, " + 
+    "reprehenderit perspiciatis? Commodi nemo recusandae incidunt provident molestias? Odio" + 
+    " vitae magni unde esse, molestias consequatur earum, animi consectetur saepe libero omnis quaerat " + 
+    "praesentium laborum. Magni esse vitae omnis, obcaecati nostrum ducimus recusandae possimus illo ex numquam laborum architecto tempora officia maiores!";
+
 document.addEventListener("DOMContentLoaded", function() {
+
+    setTimeout(() => {
+        efectoType(spanTitle, textTitle, 0, 100, 150, () => {
+            setTimeout(() => {
+                efectoType(pDescription, textDescription, 0, 0, 50, () => {});
+            }, 300);
+        });
+    }, 1500)
+
+    expandCards();
+    scrollOnClickMenuItem();
+    focusMenuItemOnScroll();
+    backButton();
+});
+
+function scrollOnClickMenuItem(){
     const menuItems = document.querySelectorAll('.menu-item a');
 
     menuItems.forEach(item => {
@@ -15,10 +43,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             }
         });
-    });
-});
+    })
+}
 
-document.addEventListener("DOMContentLoaded", function() {
+function focusMenuItemOnScroll(){
     const sections = document.querySelectorAll('section'); 
 
     function changeNavbarColor() {
@@ -48,14 +76,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     window.addEventListener('scroll', changeNavbarColor);
     changeNavbarColor();
-});
+}
 
-const spanTitle = document.querySelector(".text-about-me-title")
-const textTitle = "SOBRE MÍ: "
-const pDescription = document.querySelector(".text-about-me")
-const  textDescription = "sdkfpjgfnasedkfgbasdfkb sdfahbg asdhjb asjdhbf h askpdhbfa ksdbf"
-    + "askdhbfaskdhbfasdfhjb hj bashjdfb b jklsadhbfa sjhdbfj khbfjshbdf j " 
-    + "jh basdfhbasf jhbasjbfwe fsdkfhbsef sdhfbsdf sd fsdhfbs  sdfs df";
 
 function efectoType(elemento, texto, i = 0, min, max, callback) {
     if (i < texto.length) {
@@ -67,21 +89,13 @@ function efectoType(elemento, texto, i = 0, min, max, callback) {
     }
 }
 
-setTimeout(() => {
-    efectoType(spanTitle, textTitle, 0, 100, 150, () => {
-        setTimeout(() => {
-            efectoType(pDescription, textDescription, 0, 0, 50, () => {
-                console.log("Ambos efectos de tipo han terminado.");
-            });
-        }, 300);
-    });
-}, 1500)
+
 
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+function expandCards(){
     const cards = document.querySelectorAll('.project-card');
 
     cards.forEach(card => {
@@ -100,8 +114,31 @@ document.addEventListener("DOMContentLoaded", function() {
 
             setTimeout(() => {
                 document.getElementById("projects").style.display = "none"
-            }, 1200);
-            
+            }, 750);
+
+            const cardExpanded = document.getElementById("cardExpanded");
+            cardExpanded.style.display = "grid"
+
+            setTimeout(() => {
+                cardExpanded.classList.add("in")
+            }, 700);
         });
     })
-});
+}
+
+function backButton() {
+    document.getElementById("buttonBack").addEventListener('click', function() {
+        const cards = document.querySelectorAll('.project-card');
+    
+        cards.forEach(card => {
+            card.classList.remove("active");
+            card.classList.remove("inactive");
+            card.classList.remove("no-hover");
+        });
+    
+        document.getElementById("projects").style.display = "flex"
+        const cardExpanded = document.getElementById("cardExpanded");
+        cardExpanded.style.display = "none";
+        cardExpanded.classList.remove("in");
+    });
+}
