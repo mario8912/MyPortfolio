@@ -78,3 +78,21 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+
+document.addEventListener("DOMContentLoaded", function() {
+    const cards = document.querySelectorAll('.project-card');
+
+    cards.forEach(card => {
+        card.addEventListener("click", function() {
+            id = card.id;
+
+            cards.forEach(card => {
+                card.classList.add('inactive') 
+            });
+
+            document.querySelector(".card-hidden").classList.add('expanded');
+        });
+    })
+});
+
+
