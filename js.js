@@ -50,8 +50,12 @@ document.addEventListener("DOMContentLoaded", function() {
     changeNavbarColor();
 });
 
-const spanTitle = document.querySelector(".text-about-me-title"), textTitle = "SOBRE MÍ:";
-const pDescription = document.querySelector(".text-about-me"), textDescription = "sdkfpjgfnasedkfgbasdfkb sdfahbg asdhjb asjdhbf h askpdhbfa ksdbf askdhbfaskdhbfasdfhjb hj bashjdfb b jklsadhbfa sjhdbfj khbfjshbdf j jh basdfhbasf jhbasjbfwe fsdkfhbsef sdhfbsdf sd fsdhfbs  sdfs df";
+const spanTitle = document.querySelector(".text-about-me-title")
+const textTitle = "SOBRE MÍ: "
+const pDescription = document.querySelector(".text-about-me")
+const  textDescription = "sdkfpjgfnasedkfgbasdfkb sdfahbg asdhjb asjdhbf h askpdhbfa ksdbf"
+    + "askdhbfaskdhbfasdfhjb hj bashjdfb b jklsadhbfa sjhdbfj khbfjshbdf j " 
+    + "jh basdfhbasf jhbasjbfwe fsdkfhbsef sdhfbsdf sd fsdhfbs  sdfs df";
 
 function efectoType(elemento, texto, i = 0, min, max, callback) {
     if (i < texto.length) {
@@ -73,11 +77,9 @@ setTimeout(() => {
     });
 }, 1500)
 
-
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
 
 document.addEventListener("DOMContentLoaded", function() {
     const cards = document.querySelectorAll('.project-card');
@@ -87,12 +89,19 @@ document.addEventListener("DOMContentLoaded", function() {
             id = card.id;
 
             cards.forEach(card => {
-                card.classList.add('inactive') 
+                if (id == card.id) {
+                    card.classList.add('active') 
+                } else {
+                    card.classList.add('inactive') 
+                }
+
+                card.classList.add('no-hover');
             });
 
-            document.querySelector(".card-hidden").classList.add('expanded');
+            setTimeout(() => {
+                document.getElementById("projects").style.display = "none"
+            }, 1200);
+            
         });
     })
 });
-
-
