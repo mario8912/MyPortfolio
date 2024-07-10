@@ -11,13 +11,13 @@ const  textDescription = "Lorem ipsum dolor sit amet consectetur adipisicing eli
     "praesentium laborum. Magni esse vitae omnis, obcaecati nostrum ducimus recusandae possimus illo ex numquam laborum architecto tempora officia maiores!";
 
 document.addEventListener("DOMContentLoaded", function() {
-    /*setTimeout(() => {
+    setTimeout(() => {
         efectoType(spanTitle, textTitle, 0, 0, 2, () => { //100, 150
             setTimeout(() => {
                 efectoType(pDescription, textDescription, 0, 0, 2, () => {}); //0, 50
             }, 300);
         });
-    }, 1500)*/
+    }, 1500)
 
     backButton();
     expandCards();
@@ -60,9 +60,9 @@ function scrollOnClickMenuItem(){
 }
 
 function focusMenuItemOnScroll(){
-    let sections = [...document.querySelectorAll('section')]
-    sections.push(document.getElementById('projects'))
-    //this section above will be querySelectorAll span then add the first section
+    let sections = [...document.querySelectorAll('span')]
+    sections.push(document.getElementById('index'))
+     
     function changeNavbarColor() {
         let scrollPosition = window.scrollY;
 
