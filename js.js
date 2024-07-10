@@ -11,20 +11,33 @@ const  textDescription = "Lorem ipsum dolor sit amet consectetur adipisicing eli
     "praesentium laborum. Magni esse vitae omnis, obcaecati nostrum ducimus recusandae possimus illo ex numquam laborum architecto tempora officia maiores!";
 
 document.addEventListener("DOMContentLoaded", function() {
-
-    setTimeout(() => {
-        efectoType(spanTitle, textTitle, 0, 100, 150, () => {
+    /*setTimeout(() => {
+        efectoType(spanTitle, textTitle, 0, 0, 2, () => { //100, 150
             setTimeout(() => {
-                efectoType(pDescription, textDescription, 0, 0, 50, () => {});
+                efectoType(pDescription, textDescription, 0, 0, 2, () => {}); //0, 50
             }, 300);
         });
-    }, 1500)
+    }, 1500)*/
 
+    backButton();
     expandCards();
     scrollOnClickMenuItem();
     focusMenuItemOnScroll();
-    backButton();
 });
+
+function efectoType(elemento, texto, i = 0, min, max, callback) {
+    if (i < texto.length) {
+        elemento.textContent += texto[i];
+        let randomNumber = getRandomNumber(min, max);
+        setTimeout(() => { efectoType(elemento, texto, i + 1, min, max, callback); }, randomNumber);
+    } else {
+        if (callback) callback();
+    }
+}
+
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 function scrollOnClickMenuItem(){
     const menuItems = document.querySelectorAll('.menu-item a');
@@ -47,9 +60,9 @@ function scrollOnClickMenuItem(){
 }
 
 function focusMenuItemOnScroll(){
-    const sections = document.querySelectorAll('section'); 
-    sections.add(document.getElementById("projects"))
-
+    let sections = [...document.querySelectorAll('section')]
+    sections.push(document.getElementById('projects'))
+    //this section above will be querySelectorAll span then add the first section
     function changeNavbarColor() {
         let scrollPosition = window.scrollY;
 
@@ -79,23 +92,6 @@ function focusMenuItemOnScroll(){
     changeNavbarColor();
 }
 
-
-function efectoType(elemento, texto, i = 0, min, max, callback) {
-    if (i < texto.length) {
-        elemento.textContent += texto[i];
-        let randomNumber = getRandomNumber(min, max);
-        setTimeout(() => { efectoType(elemento, texto, i + 1, min, max, callback); }, randomNumber);
-    } else {
-        if (callback) callback();
-    }
-}
-
-
-
-function getRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 function expandCards(){
     const cards = document.querySelectorAll('.project-card');
 
@@ -109,16 +105,15 @@ function expandCards(){
                 } else {
                     card.classList.add('inactive') 
                 }
-
-                card.classList.add('no-hover');
             });
 
             setTimeout(() => {
-                document.getElementById("projects").style.display = "none"
+                document.getElementById("projectsSection").style.display = "none";
             }, 600);
 
-            const cardExpanded = document.getElementById("cardExpanded");
+            let cardExpanded = document.getElementById("cardExpanded");
             cardExpanded.style.display = "grid"
+            cardExpanded.classList.remove("out");
 
             setTimeout(() => {
                 cardExpanded.classList.add("in")
@@ -129,17 +124,23 @@ function expandCards(){
 
 function backButton() {
     document.getElementById("buttonBack").addEventListener('click', function() {
-        const cards = document.querySelectorAll('.project-card');
+        let cardExpanded = document.getElementById("cardExpanded");
+        let cards = document.querySelectorAll('.project-card');
+
+        cardExpanded.classList.add("out")
+        cardExpanded.classList.remove("in");
     
         cards.forEach(card => {
             card.classList.remove("active");
             card.classList.remove("inactive");
-            card.classList.remove("no-hover");
         });
     
-        document.getElementById("projects").style.display = "flex"
-        const cardExpanded = document.getElementById("cardExpanded");
-        cardExpanded.style.display = "none";
-        cardExpanded.classList.remove("in");
+        setTimeout(() => {
+            document.getElementById("projectsSection").style.display = "flex"
+            cardExpanded.style.display = "none";
+        }, 1500);
+
+        let projectsSection = document.getElementById("projectsSection");
+        projectsSection.classList.add("in");
     });
 }
