@@ -307,3 +307,10 @@ main {
 section ~ section {
     height: 100vh;
 }
+
+.mi-cv {
+    width: 100px;
+    height: 100px;
+    border: solid 1px;
+    margin: 64px;
+}
