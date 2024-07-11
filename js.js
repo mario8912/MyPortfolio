@@ -8,9 +8,9 @@ const  textDescription = "Lorem ipsum dolor sit amet consectetur adipisicing eli
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, " + 
     "reprehenderit perspiciatis? Commodi nemo recusandae incidunt provident molestias? Odio";
 
+var cardExpandedId;
+var cardExpandedIndex = 0;
 var cardExpandedContainer;
-var cardExpandedIndex;
-var cardExpanded;
 
 document.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => {
@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
     expandCards();
     scrollOnClickMenuItem();
     focusMenuItemOnScroll();
+    carouselOnButtonNext();
 });
 
 function efectoType(elemento, texto, i = 0, min, max, callback) {
@@ -123,15 +124,15 @@ function expandCards(){
             cardExpandedContainer.classList.remove("out");
 
             cardExpandedIndex = id.charAt(id.length-1);
-            var cardExpandedId = 'cardExpanded' + cardExpandedIndex
-            cardExpanded = document.getElementById(cardExpandedId)
-            cardExpanded.style.display = "grid"
+            cardExpandedId = 'cardExpanded' + cardExpandedIndex
+            document.getElementById(cardExpandedId).style.display = "grid";
         });
     })
 }
 
 function backButton() {
     document.getElementById("buttonBack").addEventListener('click', function() {
+
         let cards = document.querySelectorAll('.project-card');
 
         cardExpandedContainer.classList.add("out")
@@ -149,6 +150,33 @@ function backButton() {
 
         let projectsSection = document.getElementById("projectsSection");
         projectsSection.classList.add("in");
-        cardExpanded.style.display = "none"
+
+        document.getElementById("cardExpanded" + cardExpandedIndex).style.display = "none"
+    });
+}
+function carouselOnButtonNext() {
+    document.getElementById("buttonNext").addEventListener('click', function() {
+        
+        var firstCardExpanded = document.getElementById("cardExpanded" + cardExpandedIndex);
+
+        firstCardExpanded.classList.remove("in");
+        firstCardExpanded.classList.add("out");
+
+        setTimeout(() => {
+            firstCardExpanded.style.display = "none";
+            firstCardExpanded.classList.remove("out");
+        }, 500)
+
+        cardExpandedIndex = +cardExpandedIndex + 1;
+        if (cardExpandedIndex == 4) {
+            cardExpandedIndex = 1
+        } 
+
+        let nextCardExpanded = document.getElementById("cardExpanded" + cardExpandedIndex);
+
+        setTimeout(() => {
+            nextCardExpanded.classList.add("in");
+            nextCardExpanded.style.display = "grid";
+        }, 400)
     });
 }
