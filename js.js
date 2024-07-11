@@ -8,6 +8,10 @@ const  textDescription = "Lorem ipsum dolor sit amet consectetur adipisicing eli
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, " + 
     "reprehenderit perspiciatis? Commodi nemo recusandae incidunt provident molestias? Odio";
 
+var cardExpandedContainer;
+var cardExpandedIndex;
+var cardExpanded;
+
 document.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => {
         efectoType(spanTitle, textTitle, 0, 100, 150, () => { //100, 150
@@ -58,7 +62,7 @@ function scrollOnClickMenuItem(){
 }
 
 function focusMenuItemOnScroll(){
-    let sections = [...document.querySelectorAll('span')]
+    let sections = [...document.querySelectorAll('hr')]
     sections.push(document.getElementById('index'))
      
     function changeNavbarColor() {
@@ -109,24 +113,29 @@ function expandCards(){
                 document.getElementById("projectsSection").style.display = "none";
             }, 600);
 
-            let cardExpanded = document.getElementById("cardExpanded");
-            cardExpanded.style.display = "grid"
-            cardExpanded.classList.remove("out");
+            cardExpandedContainer = document.querySelector(".card-expanded-container");
+            cardExpandedContainer.style.display = "block"
 
             setTimeout(() => {
-                cardExpanded.classList.add("in")
-            }, 250);
+                cardExpandedContainer.classList.add("in")
+            }, 500);
+
+            cardExpandedContainer.classList.remove("out");
+
+            cardExpandedIndex = id.charAt(id.length-1);
+            var cardExpandedId = 'cardExpanded' + cardExpandedIndex
+            cardExpanded = document.getElementById(cardExpandedId)
+            cardExpanded.style.display = "grid"
         });
     })
 }
 
 function backButton() {
     document.getElementById("buttonBack").addEventListener('click', function() {
-        let cardExpanded = document.getElementById("cardExpanded");
         let cards = document.querySelectorAll('.project-card');
 
-        cardExpanded.classList.add("out")
-        cardExpanded.classList.remove("in");
+        cardExpandedContainer.classList.add("out")
+        cardExpandedContainer.classList.remove("in");
     
         cards.forEach(card => {
             card.classList.remove("active");
@@ -135,10 +144,11 @@ function backButton() {
     
         setTimeout(() => {
             document.getElementById("projectsSection").style.display = "flex"
-            cardExpanded.style.display = "none";
-        }, 1500);
+            cardExpandedContainer.style.display = "none";
+        }, 500);
 
         let projectsSection = document.getElementById("projectsSection");
         projectsSection.classList.add("in");
+        cardExpanded.style.display = "none"
     });
 }

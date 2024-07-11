@@ -133,7 +133,7 @@ main {
 }
 
 .projects {
-    margin: 8px 16px 64px 8px;
+    margin: 8px 16px 64px 16px;
     padding: 0 9vw;
     height: 72vh;
     display: flex;
@@ -210,29 +210,31 @@ main {
     margin: 16px 32px;
 }
 
+.card-expanded-container {
+    position: relative;
+    margin: 8px 16px 64px 16px;
+    height: 75vh;
+    width: 97vw;
+    transition: transform 1s ease-in-out, opacity 1s ease;
+    opacity: 0;
+}
+
+.card-expanded-container.out{
+    opacity: 0;
+}
+
+.card-expanded-container.in{
+    opacity: 1;
+}
+
 .card-expanded {
     display: none; /*none*/
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 2fr;
-    gap: 64px;
-    position: relative;
-    padding: 100px;
-    margin: 64px 64px 118px 64px;
-    height: 65vh;
+    gap: 32px;
     width: 97vw;
-    margin-left: 100vw;
-    opacity: 0;
-    transition: transform 1s ease-in-out, opacity 2.2s ease;
-    z-index: 0;
-}
-
-.card-expanded.in {
-    transform: translateX(-99vw);
-    opacity: 1;
-}
-
-.card-expanded.out {
-    opacity: 0;
+    height: 100%;
+    padding: 100px;
 }
 
 .grid-card {
@@ -245,7 +247,7 @@ main {
     grid-row: 1/2;
 }
 
-#projectExpandedTitle {
+.grid-card.title span {
     font-size: 32px;
 }
 
@@ -268,7 +270,7 @@ main {
 }
 
 .grid-card.description .project-description {
-    text-align: justify;
+    text-align: center;
 }
 
 .button {
@@ -276,7 +278,7 @@ main {
     border: none;
     background-color: transparent;
     cursor: pointer;
-    transition: opacity 8s ease-out;
+    transition: opacity 3s ease-in;
 }
 
 @starting-style {
@@ -285,16 +287,15 @@ main {
     }
   }
 
-.button.next {
-    right: 0;    
-    top: 50%;
-    margin-right: 12px;
+.button.back {
+    left: 2vw;
+    top: 4vh
 }
 
-.projects-container {
-    display: flex;
-    flex-flow: column;
-    justify-content: space-around;
+.button.next {
+    right: 0;    
+    bottom: 50%;
+    margin-right: 12px;
 }
 
 .section-title {
