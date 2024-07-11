@@ -6,15 +6,13 @@ const  textDescription = "Lorem ipsum dolor sit amet consectetur adipisicing eli
     " vitae magni unde esse, molestias consequatur earum, animi consectetur saepe libero omnis quaerat " + 
     "praesentium laborum. Magni esse vitae omnis, obcaecati nostrum ducimus recusandae possimus illo ex numquam laborum architecto tempora officia maiores!" + 
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, " + 
-    "reprehenderit perspiciatis? Commodi nemo recusandae incidunt provident molestias? Odio" + 
-    " vitae magni unde esse, molestias consequatur earum, animi consectetur saepe libero omnis quaerat " + 
-    "praesentium laborum. Magni esse vitae omnis, obcaecati nostrum ducimus recusandae possimus illo ex numquam laborum architecto tempora officia maiores!";
+    "reprehenderit perspiciatis? Commodi nemo recusandae incidunt provident molestias? Odio";
 
 document.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => {
-        efectoType(spanTitle, textTitle, 0, 0, 2, () => { //100, 150
+        efectoType(spanTitle, textTitle, 0, 100, 150, () => { //100, 150
             setTimeout(() => {
-                efectoType(pDescription, textDescription, 0, 0, 2, () => {}); //0, 50
+                efectoType(pDescription, textDescription, 0, 0, 60, () => {}); //0, 50
             }, 300);
         });
     }, 1500)

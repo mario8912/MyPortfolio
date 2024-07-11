@@ -61,7 +61,7 @@ li a:hover {
 }
 
 img {
-    height: 80px;;
+    height: 80px;
 }
 
 .menu-item a {
@@ -99,15 +99,17 @@ main {
 .about-me {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     margin: 8px 16px 128px 16px;
+    overflow: hidden;
 }
 
 
 .about-me img {
+    align-self: center;
     margin-top: 10px;
-    height: 86vh;
-    width: 45vw;
+    height: 88.1vh;
+    width: 60vw;
 }
 
 .about-me div {
