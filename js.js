@@ -49,7 +49,7 @@ function scrollOnClickMenuItem(){
             if (targetElement) {
                 const offsetPosition = targetElement.offsetTop;
                 window.scrollTo({
-                    top: offsetPosition - 120,
+                    top: offsetPosition - 100,
                     behavior: 'smooth'
                 });
             }
